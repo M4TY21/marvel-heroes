@@ -1,20 +1,24 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 import { api } from "../services/api";
 
+interface HeroesProviderProps {
+  children: ReactNode;
+}
+
 const HeroesContext = createContext({});
 
-function HeroesProvider(children: ReactNode) {
-  const [heroes, setHeroes] = useState([]);
+function HeroesProvider({ children }: HeroesProviderProps) {
+  const [characters, setCharacters] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  async function fetchheroes() {
-    const response = await api.get("/heroes");
-    setHeroes(response.data.heroes);
+  async function fetchCharacters() {
+    const response = await api.get("/characters");
+    setCharacters(response.data);
     setLoading(false);
   }
 
   return (
-    <HeroesContext.Provider value={{ heroes, loading, fetchheroes }}>
+    <HeroesContext.Provider value={{ characters, loading, fetchCharacters }}>
       {children}
     </HeroesContext.Provider>
   );
