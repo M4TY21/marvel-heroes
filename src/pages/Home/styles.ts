@@ -15,14 +15,26 @@ export const Container = styled.main`
 `;
 
 export const InputContainer = styled.aside`
+  position: relative;
+
   display: flex;
   justify-content: center;
   align-items: center;
   flex: 7;
 
-  min-height: 300px;
+  min-height: 380px;
 
   background: #242424;
+`;
+
+export const ButtonContainer = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 177.3px;
+
+  margin: 10px;
 `;
 
 export const Content = styled.form`
@@ -84,20 +96,16 @@ export const TodoContainer = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   flex: 8;
-  padding-bottom: 1rem;
 
   background: #0e1647;
 `;
 
 export const TodoGrid = styled.ul`
   display: grid;
-  align-items: center;
   justify-content: center;
-  flex-direction: column;
-  padding: 2rem 0 2rem;
-  gap: 1rem;
+  padding: 30px 0;
+  grid-row-gap: 30px;
 
   height: 100%;
   width: 100%;
@@ -110,4 +118,43 @@ export const TodoGrid = styled.ul`
   }
   scrollbar-width: none;
   -ms-overflow-style: none;
+
+  @media (min-width: 1007px) {
+    grid-template-columns: auto auto;
+    grid-gap: 0px 30px;
+  }
+
+  @media (min-width: 1439px) {
+    grid-gap: 0px 75px;
+  }
+`;
+
+export const Button = styled.button`
+  align-items: center;
+  justify-self: center;
+
+  width: 15rem;
+
+  height: 55px;
+
+  border: 0;
+  border-radius: 0.3rem;
+  background: #ff1734;
+
+  font-size: 1rem;
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 500;
+
+  color: #fafafa;
+
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  :hover {
+    opacity: 0.8;
+  }
+
+  @media (min-width: 1007px) {
+    grid-column: 1/3;
+  }
 `;

@@ -24,11 +24,11 @@ export function Home() {
 
   // useEffect(() => {
   //   fetchFilters(typeFilter);
-  // }, [typeFilter, fetchFilters]);
+  // }, [typeFilter]);
 
   // useEffect(() => {
   //   fetchCharacters(count);
-  // }, [count, fetchCharacters]);
+  // }, [count]);
 
   // useEffect(() => {
   //   console.log(filterSelect);
@@ -37,6 +37,9 @@ export function Home() {
   return (
     <Styles.Container>
       <Styles.InputContainer>
+        <Styles.ButtonContainer>
+          <Button>Meus Herois</Button>
+        </Styles.ButtonContainer>
         <Styles.Content onSubmit={(e) => handleSubmit(e)}>
           <Styles.SearchInput
             type="search"
@@ -103,8 +106,37 @@ export function Home() {
               extension: ".jpg",
             }}
           />
+          <HomeCard
+            id={"2"}
+            name={"3-D Man"}
+            description={"321"}
+            thumbnail={{
+              path: "https://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",
+              extension: ".jpg",
+            }}
+          />
+          <HomeCard
+            id={"3"}
+            name={"3-D Man"}
+            description={"321"}
+            thumbnail={{
+              path: "https://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",
+              extension: ".jpg",
+            }}
+          />
+          <HomeCard
+            id={"4"}
+            name={"3-D Man"}
+            description={"321"}
+            thumbnail={{
+              path: "https://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",
+              extension: ".jpg",
+            }}
+          />
+          <Styles.Button onClick={() => fetchCharacters(count)}>
+            Ver mais
+          </Styles.Button>
         </Styles.TodoGrid>
-        <Button onClick={() => setCount(count + 5)}>Ver mais</Button>
       </Styles.TodoContainer>
     </Styles.Container>
   );
