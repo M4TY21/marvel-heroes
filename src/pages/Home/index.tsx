@@ -13,19 +13,25 @@ import {
   Button,
   TodoContainer,
 } from "./styles";
+import { SelectFilterType } from "../../@types";
 
 export function Home() {
   const [name, setName] = useState("");
+  const [filterSelect, setFilterSelect] = useState<SelectFilterType>(
+    {} as SelectFilterType
+  );
+  const { filter, fetchCharacters, fetchFilters } = useHeroes();
   const [typeFilter, setTypeFilter] = useState("");
-  const [filterSelect, setFilterSelect] = useState<unknown>({});
-  const { filter, fetchFilters } = useHeroes();
-
-  const options = filter.map((item) => ({ value: item.id, label: item.title }));
 
   useEffect(() => {
     fetchFilters(typeFilter);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [typeFilter]);
+
+  useEffect(() => {
+    fetchCharacters();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     console.log(filterSelect);
@@ -76,8 +82,13 @@ export function Home() {
           {typeFilter && (
             <SelectInput
               name="filter"
-              options={options}
-              onChange={(value) => setFilterSelect(value)}
+              options={filter.map((item) => ({
+                value: item.id,
+                label: item.title,
+              }))}
+              onChange={(value: SelectFilterType) => {
+                setFilterSelect(value);
+              }}
             />
           )}
 
