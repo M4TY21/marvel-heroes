@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-import { Field, Form } from "formik";
 import Select from "react-select";
 
 export const Container = styled.main`
@@ -24,7 +23,7 @@ export const InputContainer = styled.aside`
   background: #242424;
 `;
 
-export const Content = styled(Form)`
+export const Content = styled.form`
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -32,7 +31,7 @@ export const Content = styled(Form)`
   width: 65%;
 `;
 
-export const SearchInput = styled(Field)`
+export const SearchInput = styled.input`
   padding-left: 0.5rem;
 
   height: 2rem;
@@ -67,7 +66,7 @@ export const Label = styled.label`
   color: #fafafa;
 `;
 
-export const Radio = styled(Field)`
+export const Radio = styled.input`
   margin-right: 6px;
 `;
 

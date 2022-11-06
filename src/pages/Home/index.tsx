@@ -1,4 +1,5 @@
-import { Formik } from "formik";
+import { useEffect, useState } from "react";
+import { useHeroes } from "../../hooks/useHeroes";
 
 import {
   Container,
@@ -14,56 +15,76 @@ import {
 } from "./styles";
 
 export function Home() {
+  const [name, setName] = useState("");
+  const [typeFilter, setTypeFilter] = useState("");
+  const [filterSelect, setFilterSelect] = useState<unknown>({});
+  const { filter, fetchFilters } = useHeroes();
+
+  const options = filter.map((item) => ({ value: item.id, label: item.title }));
+
+  useEffect(() => {
+    fetchFilters(typeFilter);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [typeFilter]);
+
+  useEffect(() => {
+    console.log(filterSelect);
+  }, [filterSelect]);
+
   return (
     <Container>
       <InputContainer>
-        <Formik
-          initialValues={{ hero: "", typeFilter: "" }}
-          onSubmit={(values) => {
-            console.log(values);
-          }}
-        >
-          {({ values, handleSubmit }) => (
-            <Content
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSubmit();
-              }}
-            >
-              <SearchInput
-                type="search"
-                placeholder="Nome do herói"
-                name="hero"
+        <Content onSubmit={(e) => {}}>
+          <SearchInput
+            type="search"
+            placeholder="Nome do herói"
+            name="hero"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <Filter>
+            <Label>
+              <Radio
+                type="radio"
+                value=""
+                name="typeFilter"
+                onChange={(e) => setTypeFilter(e.target.value)}
               />
-              <Filter>
-                <Label>
-                  <Radio type="radio" value="" name="typeFilter" />
-                  Sem Filtro
-                </Label>
+              Sem Filtro
+            </Label>
 
-                <Label>
-                  <Radio type="radio" value="Filmes" name="typeFilter" />
-                  Filme
-                </Label>
+            <Label>
+              <Radio
+                type="radio"
+                value="series"
+                name="typeFilter"
+                onChange={(e) => setTypeFilter(e.target.value)}
+              />
+              Series
+            </Label>
 
-                <Label>
-                  <Radio type="radio" value="Quadrinhos" name="typeFilter" />
-                  Quadrinhos
-                </Label>
-
-                <Label>
-                  <Radio type="radio" value="Criadores" name="typeFilter" />
-                  Criadores
-                </Label>
-              </Filter>
-              {values.typeFilter && <SelectInput name="filter" />}
-
-              <Button type="submit">Search</Button>
-            </Content>
+            <Label>
+              <Radio
+                type="radio"
+                value="comics"
+                name="typeFilter"
+                onChange={(e) => setTypeFilter(e.target.value)}
+              />
+              Quadrinhos
+            </Label>
+          </Filter>
+          {typeFilter && (
+            <SelectInput
+              name="filter"
+              options={options}
+              onChange={(value) => setFilterSelect(value)}
+            />
           )}
-        </Formik>
+
+          <Button type="submit">Search</Button>
+        </Content>
       </InputContainer>
-      <TodoContainer>dasda</TodoContainer>
+      <TodoContainer></TodoContainer>
     </Container>
   );
 }
