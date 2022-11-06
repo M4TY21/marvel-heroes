@@ -1,7 +1,7 @@
 import axios from "axios";
 import md5 from "md5";
 
-const ts = Math.floor(Date.now() / 1000);
+const ts = 100;
 
 const REACT_APP_PUBLIC_KEY = process.env.REACT_APP_PUBLIC_KEY;
 const REACT_APP_PRIVATE_KEY = process.env.REACT_APP_PRIVATE_KEY;

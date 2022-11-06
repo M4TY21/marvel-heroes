@@ -1,8 +1,14 @@
+import { ButtonHTMLAttributes, ReactNode } from "react";
+
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  children: ReactNode;
+};
+
 export type CharactersTypes = {
   id: string;
   name: string;
   description: string;
-  thumbnail: {
+  thumbnail?: {
     extension: string;
     path: string;
   };
