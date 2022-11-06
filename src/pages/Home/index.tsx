@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useHeroes } from "../../hooks/useHeroes";
 
 import {
@@ -17,21 +17,26 @@ import { SelectFilterType } from "../../@types";
 
 export function Home() {
   const [name, setName] = useState("");
+  const [typeFilter, setTypeFilter] = useState("");
+  const [count, setCount] = useState(20);
   const [filterSelect, setFilterSelect] = useState<SelectFilterType>(
     {} as SelectFilterType
   );
+
   const { filter, fetchCharacters, fetchFilters } = useHeroes();
-  const [typeFilter, setTypeFilter] = useState("");
+
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    setCount(count + 10);
+  }
 
   useEffect(() => {
     fetchFilters(typeFilter);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [typeFilter]);
+  }, [typeFilter, fetchFilters]);
 
   useEffect(() => {
-    fetchCharacters();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    fetchCharacters(count);
+  }, [count, fetchCharacters]);
 
   useEffect(() => {
     console.log(filterSelect);
@@ -40,7 +45,7 @@ export function Home() {
   return (
     <Container>
       <InputContainer>
-        <Content onSubmit={(e) => {}}>
+        <Content onSubmit={(e) => handleSubmit(e)}>
           <SearchInput
             type="search"
             placeholder="Nome do herói"

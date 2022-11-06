@@ -18,9 +18,13 @@ function HeroesProvider({ children }: HeroesProviderProps) {
   const [characters, setCharacters] = useState<CharactersTypes[]>([]);
   const [filter, SetFilter] = useState<FilterTypes[]>([]);
 
-  async function fetchCharacters() {
-    const response = await api.get("/characters");
-    console.log(response.data.data.results);
+  async function fetchCharacters(limit: number) {
+    const response = await api.get("/characters", {
+      params: {
+        limit,
+      },
+    });
+    console.log(response.data.data);
   }
 
   async function fetchFilters(typeFilter: string) {

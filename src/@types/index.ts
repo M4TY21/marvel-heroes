@@ -24,6 +24,6 @@ export type SelectFilterType = {
 export interface ContextTypes {
   characters: CharactersTypes[];
   filter: FilterTypes[];
-  fetchCharacters: () => Promise<void>;
+  fetchCharacters: (limit: number) => Promise<void>;
   fetchFilters: (typeFilter: string) => Promise<void>;
 }
