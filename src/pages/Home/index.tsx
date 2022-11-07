@@ -19,7 +19,6 @@ export function Home() {
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    setCount(count + 10);
   }
 
   // useEffect(() => {
@@ -28,7 +27,7 @@ export function Home() {
 
   // useEffect(() => {
   //   fetchCharacters(count);
-  // }, [count]);
+  // }, [count, fetchCharacters]);
 
   // useEffect(() => {
   //   console.log(filterSelect);
@@ -133,7 +132,7 @@ export function Home() {
               extension: ".jpg",
             }}
           />
-          <Styles.Button onClick={() => fetchCharacters(count)}>
+          <Styles.Button onClick={() => setCount(count + 10)}>
             Ver mais
           </Styles.Button>
         </Styles.TodoGrid>
