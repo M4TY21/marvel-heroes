@@ -177,7 +177,7 @@ export const TodoGrid = styled.ul`
 
   @media (min-width: 1439px) {
     grid-template-columns: auto auto auto auto;
-    grid-gap: 30px 25px;
+    grid-gap: 30px 20px;
   }
 `;
 

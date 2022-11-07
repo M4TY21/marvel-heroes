@@ -1,14 +1,14 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { Home } from "../pages/Home";
-import { Heroes } from "../pages/Heroes";
+import { MyHeroes } from "../pages/MyHeroes";
 
 export function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/heroes" element={<Heroes />} />
+        <Route path="/myHeroes" element={<MyHeroes />} />
       </Routes>
     </BrowserRouter>
   );

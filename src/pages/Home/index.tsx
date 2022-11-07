@@ -29,7 +29,7 @@ export function Home() {
   }
 
   function handleNavigateToHeroes() {
-    navigation("/heroes");
+    navigation("/myHeroes");
   }
 
   // useEffect(() => {
@@ -37,15 +37,15 @@ export function Home() {
   //   // eslint-disable-next-line react-hooks/exhaustive-deps
   // }, [typeFilter]);
 
-  // useEffect(() => {
-  //   fetchCharacters({
-  //     limit: count,
-  //     typeFilter,
-  //     filterId: filterSelect.value,
-  //     nameStartsWith: name,
-  //   });
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [count]);
+  useEffect(() => {
+    fetchCharacters({
+      limit: count,
+      typeFilter,
+      filterId: filterSelect.value,
+      nameStartsWith: name,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [count]);
 
   // useEffect(() => {
   //   console.log(filterSelect);
@@ -121,6 +121,7 @@ export function Home() {
             characters.map((item) => (
               <HomeCard
                 key={item.id}
+                id={item.id}
                 name={item.name}
                 description={item.description}
                 thumbnail={item.thumbnail}

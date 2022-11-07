@@ -153,9 +153,7 @@ export const TodoGrid = styled.ul`
   grid-gap: 30px 0px;
 
   height: 100%;
-  width: 50%;
-
-  border-right: 1px solid #242424;
+  width: 100%;
 
   overflow-y: scrollbar;
   overflow-x: hidden;

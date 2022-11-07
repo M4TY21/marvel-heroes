@@ -5,7 +5,7 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 export type CharactersTypes = {
-  id?: string;
+  id: string;
   name: string;
   description: string;
   thumbnail?: {
@@ -17,9 +17,6 @@ export type CharactersTypes = {
 export type FilterTypes = {
   id: number;
   title: string;
-  characters: {
-    collectionURI: string;
-  };
 };
 
 export type SelectFilterType = {
@@ -34,6 +31,11 @@ export type fetchCharactersTypes = {
   nameStartsWith: string;
 };
 
+export type StorageCharactersTypes = {
+  id: string;
+  rating: number | undefined;
+};
+
 export interface ContextTypes {
   characters: CharactersTypes[];
   filter: FilterTypes[];
@@ -45,4 +47,5 @@ export interface ContextTypes {
     nameStartsWith,
   }: fetchCharactersTypes) => Promise<void>;
   fetchFilters: (typeFilter: string) => Promise<void>;
+  updateStorage: ({ id, rating }: StorageCharactersTypes) => void;
 }

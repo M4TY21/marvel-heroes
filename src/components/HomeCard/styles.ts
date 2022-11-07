@@ -4,7 +4,7 @@ export const Container = styled.li`
   position: relative;
 
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 

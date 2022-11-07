@@ -5,7 +5,7 @@ import { Button } from "../../components/Button";
 import { useHeroes } from "../../hooks/useHeroes";
 import * as Styles from "./styles";
 
-export function Heroes() {
+export function MyHeroes() {
   const [name, setName] = useState("");
   const [typeFilter, setTypeFilter] = useState("");
   const [count, setCount] = useState(20);

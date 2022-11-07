@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { api } from "../services/api";
 
 import {
@@ -6,6 +12,7 @@ import {
   ContextTypes,
   fetchCharactersTypes,
   FilterTypes,
+  StorageCharactersTypes,
 } from "../@types";
 
 interface HeroesProviderProps {
@@ -18,6 +25,9 @@ function HeroesProvider({ children }: HeroesProviderProps) {
   const [characters, setCharacters] = useState<CharactersTypes[]>([]);
   const [filter, SetFilter] = useState<FilterTypes[]>([]);
   const [loading, setLoading] = useState(false);
+  const [atualStorage, setAtualStorage] = useState<StorageCharactersTypes[]>(
+    []
+  );
 
   async function fetchCharacters({
     limit,
@@ -56,9 +66,38 @@ function HeroesProvider({ children }: HeroesProviderProps) {
     setLoading(false);
   }
 
+  function getStorage() {
+    const storage = localStorage.getItem("characters");
+
+    if (storage) {
+      const storageParse = JSON.parse(storage);
+      setAtualStorage(storageParse);
+    }
+  }
+
+  function updateStorage({ id, rating }: StorageCharactersTypes) {
+    localStorage.setItem(
+      "characters",
+      JSON.stringify([...atualStorage, { id, rating }])
+    );
+
+    getStorage();
+  }
+
+  useEffect(() => {
+    getStorage();
+  }, []);
+
   return (
     <HeroesContext.Provider
-      value={{ characters, loading, filter, fetchCharacters, fetchFilters }}
+      value={{
+        characters,
+        loading,
+        filter,
+        fetchCharacters,
+        fetchFilters,
+        updateStorage,
+      }}
     >
       {children}
     </HeroesContext.Provider>
