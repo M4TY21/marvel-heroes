@@ -97,7 +97,11 @@ export const Radio = styled.input`
 export const SelectInput = styled(Select)`
   max-width: 177px;
 
+  font-size: 1rem;
   font-family: "Helvetica Neue", sans-serif;
+  font-weight: 500;
+
+  color: #3f3f3f;
 `;
 
 export const TodoContainer = styled.section`
@@ -106,7 +110,7 @@ export const TodoContainer = styled.section`
   align-items: center;
   flex: 8;
 
-  background: #0e1647;
+  background: #181919;
 `;
 
 export const TodoGrid = styled.ul`
@@ -145,9 +149,9 @@ export const TodoGrid = styled.ul`
 export const Button = styled.button`
   align-items: center;
   justify-self: center;
+  margin-top: auto;
 
   width: 15rem;
-
   height: 55px;
 
   border: 0;

@@ -8,6 +8,7 @@ import * as Styles from "./styles";
 
 import { SelectFilterType } from "../../@types";
 import { Load } from "../../components/Load";
+import { NotFound } from "../../components/NotFound";
 
 export function Home() {
   const [name, setName] = useState("");
@@ -110,14 +111,18 @@ export function Home() {
       </Styles.InputContainer>
       <Styles.TodoContainer>
         <Styles.TodoGrid>
-          {characters.map((item) => (
-            <HomeCard
-              key={item.id}
-              name={item.name}
-              description={item.description}
-              thumbnail={item.thumbnail}
-            />
-          ))}
+          {characters[0] ? (
+            characters.map((item) => (
+              <HomeCard
+                key={item.id}
+                name={item.name}
+                description={item.description}
+                thumbnail={item.thumbnail}
+              />
+            ))
+          ) : (
+            <NotFound />
+          )}
           <Styles.Button onClick={() => setCount(count + 20)}>
             Ver mais
           </Styles.Button>

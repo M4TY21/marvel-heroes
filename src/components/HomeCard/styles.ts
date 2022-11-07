@@ -13,7 +13,7 @@ export const Container = styled.li`
 
   border: 0;
   border-radius: 0.5rem;
-  background: #e3e3e3;
+  background: #fafafa;
 `;
 
 export const Content = styled.div`
