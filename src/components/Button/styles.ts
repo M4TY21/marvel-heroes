@@ -21,7 +21,7 @@ export const Container = styled.button`
 
 export const Title = styled.h2`
   font-size: 1rem;
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
 
   color: #fafafa;

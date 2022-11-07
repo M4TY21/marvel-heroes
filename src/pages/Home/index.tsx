@@ -31,15 +31,15 @@ export function Home() {
   //   // eslint-disable-next-line react-hooks/exhaustive-deps
   // }, [typeFilter]);
 
-  // useEffect(() => {
-  //   fetchCharacters({
-  //     limit: count,
-  //     typeFilter,
-  //     filterId: filterSelect.value,
-  //     nameStartsWith: name,
-  //   });
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [count]);
+  useEffect(() => {
+    fetchCharacters({
+      limit: count,
+      typeFilter,
+      filterId: filterSelect.value,
+      nameStartsWith: name,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [count]);
 
   // useEffect(() => {
   //   console.log(filterSelect);

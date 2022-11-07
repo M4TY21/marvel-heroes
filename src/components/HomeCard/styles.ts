@@ -43,12 +43,14 @@ export const HeroImg = styled.img`
 `;
 
 export const Name = styled.h1`
-  width: 95%;
   justify-self: center;
+  width: 100%;
+  text-align: center;
 
-  font-size: 1.5rem;
-  font-family: "Helvetica Neue", sans-serif;
+  font-size: 1.3rem;
+  font-family: "Poppins", sans-serif;
   font-weight: 700;
+
   color: #242424;
 `;
 

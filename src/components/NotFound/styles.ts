@@ -31,6 +31,6 @@ export const Message = styled.h1`
   width: 100%;
 
   font-size: 1.3rem;
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 700;
 `;
