@@ -7,6 +7,7 @@ import { Button } from "../../components/Button";
 import * as Styles from "./styles";
 
 import { SelectFilterType } from "../../@types";
+import { Load } from "../../components/Load";
 
 export function Home() {
   const [name, setName] = useState("");
@@ -16,31 +17,32 @@ export function Home() {
     {} as SelectFilterType
   );
 
-  const { characters, filter, fetchCharacters, fetchFilters } = useHeroes();
+  const { characters, loading, filter, fetchCharacters, fetchFilters } =
+    useHeroes();
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setCount(count + 1);
   }
 
-  useEffect(() => {
-    fetchFilters(typeFilter);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [typeFilter]);
+  // useEffect(() => {
+  //   fetchFilters(typeFilter);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [typeFilter]);
 
-  useEffect(() => {
-    fetchCharacters({
-      limit: count,
-      typeFilter,
-      filterId: filterSelect.value,
-      nameStartsWith: name,
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [count]);
+  // useEffect(() => {
+  //   fetchCharacters({
+  //     limit: count,
+  //     typeFilter,
+  //     filterId: filterSelect.value,
+  //     nameStartsWith: name,
+  //   });
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [count]);
 
-  useEffect(() => {
-    console.log(filterSelect);
-  }, [filterSelect]);
+  // useEffect(() => {
+  //   console.log(filterSelect);
+  // }, [filterSelect]);
 
   return (
     <Styles.Container>
@@ -121,6 +123,7 @@ export function Home() {
           </Styles.Button>
         </Styles.TodoGrid>
       </Styles.TodoContainer>
+      {loading && <Load />}
     </Styles.Container>
   );
 }

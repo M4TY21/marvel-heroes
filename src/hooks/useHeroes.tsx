@@ -17,6 +17,7 @@ const HeroesContext = createContext({} as ContextTypes);
 function HeroesProvider({ children }: HeroesProviderProps) {
   const [characters, setCharacters] = useState<CharactersTypes[]>([]);
   const [filter, SetFilter] = useState<FilterTypes[]>([]);
+  const [loading, setLoading] = useState(false);
 
   async function fetchCharacters({
     limit,
@@ -24,6 +25,7 @@ function HeroesProvider({ children }: HeroesProviderProps) {
     filterId,
     nameStartsWith,
   }: fetchCharactersTypes) {
+    setLoading(true);
     const url = filterId
       ? `/${typeFilter}/${filterId}/characters`
       : "/characters";
@@ -41,19 +43,22 @@ function HeroesProvider({ children }: HeroesProviderProps) {
       params,
     });
     setCharacters(response.data.data.results);
+    setLoading(false);
   }
 
   async function fetchFilters(typeFilter: string) {
     if (typeFilter === "") {
       return;
     }
+    setLoading(true);
     const response = await api.get(`/${typeFilter}`);
     SetFilter(response.data.data.results);
+    setLoading(false);
   }
 
   return (
     <HeroesContext.Provider
-      value={{ characters, filter, fetchCharacters, fetchFilters }}
+      value={{ characters, loading, filter, fetchCharacters, fetchFilters }}
     >
       {children}
     </HeroesContext.Provider>

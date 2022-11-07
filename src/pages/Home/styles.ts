@@ -96,6 +96,8 @@ export const Radio = styled.input`
 
 export const SelectInput = styled(Select)`
   max-width: 177px;
+
+  font-family: "Helvetica Neue", sans-serif;
 `;
 
 export const TodoContainer = styled.section`

@@ -37,6 +37,7 @@ export type fetchCharactersTypes = {
 export interface ContextTypes {
   characters: CharactersTypes[];
   filter: FilterTypes[];
+  loading: boolean;
   fetchCharacters: ({
     limit,
     typeFilter,
