@@ -203,7 +203,12 @@ export const Button = styled.button`
   transition: opacity 0.2s;
 
   :hover {
+    opacity: 0.7;
+  }
+
+  :disabled {
     opacity: 0.8;
+    cursor: not-allowed;
   }
 
   @media (min-width: 1007px) {

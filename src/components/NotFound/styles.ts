@@ -5,12 +5,13 @@ export const Container = styled.li`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   align-self: center;
   margin-top: auto;
-  padding: 15px 30px;
-  gap: 2rem;
+  padding: 20px 30px;
+  gap: 1rem;
 
-  width: 17rem;
+  width: 15rem;
 
   border: 0;
   border-radius: 0.5rem;
@@ -29,6 +30,7 @@ export const Icon = styled(AlertCircle)``;
 
 export const Message = styled.h1`
   width: 100%;
+  text-align: center;
 
   font-size: 1.3rem;
   font-family: "Poppins", sans-serif;

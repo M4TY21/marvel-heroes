@@ -1,14 +1,15 @@
 import { FormEvent, useEffect, useState } from "react";
 import { useHeroes } from "../../hooks/useHeroes";
+import { useNavigate } from "react-router-dom";
 
 import { HomeCard } from "../../components/HomeCard";
+import { NotFound } from "../../components/NotFound";
 import { Button } from "../../components/Button";
+import { Load } from "../../components/Load";
 
 import * as Styles from "./styles";
 
 import { SelectFilterType } from "../../@types";
-import { Load } from "../../components/Load";
-import { NotFound } from "../../components/NotFound";
 
 export function Home() {
   const [name, setName] = useState("");
@@ -17,6 +18,7 @@ export function Home() {
   const [filterSelect, setFilterSelect] = useState<SelectFilterType>(
     {} as SelectFilterType
   );
+  const navigation = useNavigate();
 
   const { characters, loading, filter, fetchCharacters, fetchFilters } =
     useHeroes();
@@ -26,20 +28,24 @@ export function Home() {
     setCount(count + 1);
   }
 
+  function handleNavigateToHeroes() {
+    navigation("/heroes");
+  }
+
   // useEffect(() => {
   //   fetchFilters(typeFilter);
   //   // eslint-disable-next-line react-hooks/exhaustive-deps
   // }, [typeFilter]);
 
-  useEffect(() => {
-    fetchCharacters({
-      limit: count,
-      typeFilter,
-      filterId: filterSelect.value,
-      nameStartsWith: name,
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [count]);
+  // useEffect(() => {
+  //   fetchCharacters({
+  //     limit: count,
+  //     typeFilter,
+  //     filterId: filterSelect.value,
+  //     nameStartsWith: name,
+  //   });
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [count]);
 
   // useEffect(() => {
   //   console.log(filterSelect);
@@ -49,7 +55,7 @@ export function Home() {
     <Styles.Container>
       <Styles.InputContainer>
         <Styles.ButtonContainer>
-          <Button>Meus Herois</Button>
+          <Button onClick={handleNavigateToHeroes}>Meus Herois</Button>
         </Styles.ButtonContainer>
         <Styles.Content onSubmit={(e) => handleSubmit(e)}>
           <Styles.SearchInput
@@ -123,7 +129,10 @@ export function Home() {
           ) : (
             <NotFound />
           )}
-          <Styles.Button onClick={() => setCount(count + 20)}>
+          <Styles.Button
+            onClick={() => setCount(count + 20)}
+            disabled={!characters[0]}
+          >
             Ver mais
           </Styles.Button>
         </Styles.TodoGrid>
