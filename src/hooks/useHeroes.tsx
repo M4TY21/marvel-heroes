@@ -4,8 +4,8 @@ import { api } from "../services/api";
 import {
   CharactersTypes,
   ContextTypes,
+  fetchCharactersTypes,
   FilterTypes,
-  SelectFilterType,
 } from "../@types";
 
 interface HeroesProviderProps {
@@ -18,11 +18,27 @@ function HeroesProvider({ children }: HeroesProviderProps) {
   const [characters, setCharacters] = useState<CharactersTypes[]>([]);
   const [filter, SetFilter] = useState<FilterTypes[]>([]);
 
-  async function fetchCharacters(limit: number) {
-    const response = await api.get("/characters", {
-      params: {
-        limit,
-      },
+  async function fetchCharacters({
+    limit,
+    typeFilter,
+    filterId,
+    nameStartsWith,
+  }: fetchCharactersTypes) {
+    const url = filterId
+      ? `/${typeFilter}/${filterId}/characters`
+      : "/characters";
+    const params =
+      nameStartsWith !== ""
+        ? {
+            limit,
+            nameStartsWith,
+          }
+        : {
+            limit,
+          };
+
+    const response = await api.get(url, {
+      params,
     });
     console.log(response.data.data);
   }

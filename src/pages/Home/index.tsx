@@ -1,11 +1,12 @@
 import { FormEvent, useEffect, useState } from "react";
 import { useHeroes } from "../../hooks/useHeroes";
 
+import { HomeCard } from "../../components/HomeCard";
+import { Button } from "../../components/Button";
+
 import * as Styles from "./styles";
 
 import { SelectFilterType } from "../../@types";
-import { HomeCard } from "../../components/HomeCard";
-import { Button } from "../../components/Button";
 
 export function Home() {
   const [name, setName] = useState("");
@@ -19,15 +20,23 @@ export function Home() {
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
+    setCount(count + 1);
   }
 
   // useEffect(() => {
   //   fetchFilters(typeFilter);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
   // }, [typeFilter]);
 
   // useEffect(() => {
-  //   fetchCharacters(count);
-  // }, [count, fetchCharacters]);
+  //   fetchCharacters({
+  //     limit: count,
+  //     typeFilter,
+  //     filterId: filterSelect.value,
+  //     nameStartsWith: name,
+  //   });
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [count]);
 
   // useEffect(() => {
   //   console.log(filterSelect);

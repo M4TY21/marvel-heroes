@@ -25,6 +25,10 @@ export const InputContainer = styled.aside`
   min-height: 380px;
 
   background: #242424;
+
+  @media (min-width: 700px) {
+    max-width: 500px;
+  }
 `;
 
 export const ButtonContainer = styled.div`
@@ -90,7 +94,9 @@ export const Radio = styled.input`
   margin-right: 6px;
 `;
 
-export const SelectInput = styled(Select)``;
+export const SelectInput = styled(Select)`
+  max-width: 177px;
+`;
 
 export const TodoContainer = styled.section`
   display: flex;

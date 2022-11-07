@@ -27,9 +27,21 @@ export type SelectFilterType = {
   label: string;
 };
 
+export type fetchCharactersTypes = {
+  limit: number;
+  typeFilter: string;
+  filterId: string;
+  nameStartsWith: string;
+};
+
 export interface ContextTypes {
   characters: CharactersTypes[];
   filter: FilterTypes[];
-  fetchCharacters: (limit: number) => Promise<void>;
+  fetchCharacters: ({
+    limit,
+    typeFilter,
+    filterId,
+    nameStartsWith,
+  }: fetchCharactersTypes) => Promise<void>;
   fetchFilters: (typeFilter: string) => Promise<void>;
 }
