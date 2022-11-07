@@ -40,7 +40,7 @@ function HeroesProvider({ children }: HeroesProviderProps) {
     const response = await api.get(url, {
       params,
     });
-    console.log(response.data.data);
+    setCharacters(response.data.data.results);
   }
 
   async function fetchFilters(typeFilter: string) {

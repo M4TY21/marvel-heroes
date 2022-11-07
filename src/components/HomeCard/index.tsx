@@ -5,12 +5,7 @@ import * as Styles from "./styles";
 
 import { CharactersTypes } from "../../@types";
 
-export function HomeCard({
-  id,
-  name,
-  description,
-  thumbnail,
-}: CharactersTypes) {
+export function HomeCard({ name, description, thumbnail }: CharactersTypes) {
   function openModal() {
     swal({
       title: "Descrição",
@@ -23,7 +18,7 @@ export function HomeCard({
     <Styles.Container>
       <Styles.Content>
         <Styles.Figure>
-          <Styles.HeroImg src={`${thumbnail?.path}${thumbnail?.extension}`} />
+          <Styles.HeroImg src={`${thumbnail?.path}.${thumbnail?.extension}`} />
         </Styles.Figure>
         <Styles.Name>{name}</Styles.Name>
       </Styles.Content>

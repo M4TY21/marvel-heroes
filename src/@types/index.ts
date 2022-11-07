@@ -5,7 +5,7 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 export type CharactersTypes = {
-  id: string;
+  id?: string;
   name: string;
   description: string;
   thumbnail?: {

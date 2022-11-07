@@ -43,7 +43,10 @@ export const HeroImg = styled.img`
 `;
 
 export const Name = styled.h1`
-  font-size: 2rem;
+  width: 95%;
+  justify-self: center;
+
+  font-size: 1.5rem;
   font-family: "Helvetica Neue", sans-serif;
   font-weight: 700;
   color: #242424;

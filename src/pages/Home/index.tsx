@@ -23,24 +23,24 @@ export function Home() {
     setCount(count + 1);
   }
 
-  // useEffect(() => {
-  //   fetchFilters(typeFilter);
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [typeFilter]);
+  useEffect(() => {
+    fetchFilters(typeFilter);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [typeFilter]);
 
-  // useEffect(() => {
-  //   fetchCharacters({
-  //     limit: count,
-  //     typeFilter,
-  //     filterId: filterSelect.value,
-  //     nameStartsWith: name,
-  //   });
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [count]);
+  useEffect(() => {
+    fetchCharacters({
+      limit: count,
+      typeFilter,
+      filterId: filterSelect.value,
+      nameStartsWith: name,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [count]);
 
-  // useEffect(() => {
-  //   console.log(filterSelect);
-  // }, [filterSelect]);
+  useEffect(() => {
+    console.log(filterSelect);
+  }, [filterSelect]);
 
   return (
     <Styles.Container>
@@ -62,7 +62,10 @@ export function Home() {
                 type="radio"
                 value=""
                 name="typeFilter"
-                onChange={(e) => setTypeFilter(e.target.value)}
+                onChange={(e) => {
+                  setTypeFilter(e.target.value);
+                  setFilterSelect({} as SelectFilterType);
+                }}
               />
               Sem Filtro
             </Styles.Label>
@@ -105,43 +108,15 @@ export function Home() {
       </Styles.InputContainer>
       <Styles.TodoContainer>
         <Styles.TodoGrid>
-          <HomeCard
-            id={"1"}
-            name={"3-D Man"}
-            description={"321"}
-            thumbnail={{
-              path: "https://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",
-              extension: ".jpg",
-            }}
-          />
-          <HomeCard
-            id={"2"}
-            name={"3-D Man"}
-            description={"321"}
-            thumbnail={{
-              path: "https://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",
-              extension: ".jpg",
-            }}
-          />
-          <HomeCard
-            id={"3"}
-            name={"3-D Man"}
-            description={"321"}
-            thumbnail={{
-              path: "https://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",
-              extension: ".jpg",
-            }}
-          />
-          <HomeCard
-            id={"4"}
-            name={"3-D Man"}
-            description={"321"}
-            thumbnail={{
-              path: "https://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",
-              extension: ".jpg",
-            }}
-          />
-          <Styles.Button onClick={() => setCount(count + 10)}>
+          {characters.map((item) => (
+            <HomeCard
+              key={item.id}
+              name={item.name}
+              description={item.description}
+              thumbnail={item.thumbnail}
+            />
+          ))}
+          <Styles.Button onClick={() => setCount(count + 20)}>
             Ver mais
           </Styles.Button>
         </Styles.TodoGrid>
