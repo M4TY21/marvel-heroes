@@ -14,9 +14,10 @@ export function MyHeroes() {
 
   const [name, setName] = useState("");
   const [rating, setRating] = useState(0);
-  const [character, setCharacter] = useState<RatingSearchType>(
-    {} as RatingSearchType
-  );
+  const [character, setCharacter] = useState<RatingSearchType>({
+    name,
+    rating,
+  } as RatingSearchType);
   const [count, setCount] = useState(20);
 
   const navigation = useNavigate();
@@ -58,24 +59,24 @@ export function MyHeroes() {
       <Styles.TodoContainer>
         <Styles.TodoGrid>
           {atualStorage.map((item) =>
-            character.name === "" && item.rating > character.rating ? (
-              <MyHeroCard
-                key={item.id}
-                id={item.id}
-                name={item.name}
-                rating={item.rating}
-              />
-            ) : (
-              item.name.startsWith(character.name) &&
-              item.rating >= character.rating && (
-                <MyHeroCard
-                  key={item.id}
-                  id={item.id}
-                  name={item.name}
-                  rating={item.rating}
-                />
-              )
-            )
+            character.name === ""
+              ? item.rating >= character.rating && (
+                  <MyHeroCard
+                    key={item.id}
+                    id={item.id}
+                    name={item.name}
+                    rating={item.rating}
+                  />
+                )
+              : item.name.startsWith(character.name) &&
+                item.rating >= character.rating && (
+                  <MyHeroCard
+                    key={item.id}
+                    id={item.id}
+                    name={item.name}
+                    rating={item.rating}
+                  />
+                )
           )}
         </Styles.TodoGrid>
       </Styles.TodoContainer>
