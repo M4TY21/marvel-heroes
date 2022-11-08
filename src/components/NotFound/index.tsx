@@ -1,10 +1,14 @@
 import * as Styles from "./styles";
 
-export function NotFound() {
+type NotFoundType = {
+  title: string;
+};
+
+export function NotFound({ title }: NotFoundType) {
   return (
     <Styles.Container>
       <Styles.Icon color="black" size={48} />
-      <Styles.Message>Não possui nenhum herói com esse filtro</Styles.Message>
+      <Styles.Message>{title}</Styles.Message>
     </Styles.Container>
   );
 }

@@ -75,11 +75,22 @@ function HeroesProvider({ children }: HeroesProviderProps) {
     }
   }
 
-  function updateStorage({ id, rating }: StorageCharactersTypes) {
-    localStorage.setItem(
-      "characters",
-      JSON.stringify([...atualStorage, { id, rating }])
-    );
+  function updateStorage({ id, name, rating }: StorageCharactersTypes) {
+    const idsStorage = atualStorage.map((item) => item.id);
+
+    if (!idsStorage.includes(id)) {
+      localStorage.setItem(
+        "characters",
+        JSON.stringify([...atualStorage, { id, name, rating }])
+      );
+    } else {
+      const index = atualStorage.indexOf({ id, name, rating });
+      atualStorage.splice(index, 1);
+      localStorage.setItem(
+        "characters",
+        JSON.stringify([...atualStorage, { id, name, rating }])
+      );
+    }
 
     getStorage();
   }
@@ -92,6 +103,7 @@ function HeroesProvider({ children }: HeroesProviderProps) {
     <HeroesContext.Provider
       value={{
         characters,
+        atualStorage,
         loading,
         filter,
         fetchCharacters,

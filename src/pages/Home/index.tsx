@@ -128,7 +128,7 @@ export function Home() {
               />
             ))
           ) : (
-            <NotFound />
+            <NotFound title="Não possui nenhum herói com esse filtro" />
           )}
           <Styles.Button
             onClick={() => setCount(count + 20)}

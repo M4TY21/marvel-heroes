@@ -16,24 +16,30 @@ export function HomeCard({
   const { updateStorage } = useHeroes();
 
   function openModal() {
-    swal({
-      title: "Descrição",
-      text: description,
-      icon: "info",
-    });
+    if (description === "") {
+      swal({
+        title: "Aviso",
+        text: "Este heroi não tem descrição registrada.",
+        icon: "warning",
+      });
+    } else {
+      swal({
+        title: "Descrição",
+        text: description,
+        icon: "info",
+      });
+    }
   }
 
   function handleRating(rating: number | undefined) {
-    updateStorage({ id, rating });
+    updateStorage({ id, name, rating });
   }
 
   return (
     <Styles.Container>
-      {description !== "" && (
-        <Styles.DescriptionIcon onClick={openModal}>
-          <Info size={24} />
-        </Styles.DescriptionIcon>
-      )}
+      <Styles.DescriptionIcon onClick={openModal}>
+        <Info size={24} />
+      </Styles.DescriptionIcon>
       <Styles.Content>
         <Styles.Figure>
           <Styles.HeroImg src={`${thumbnail?.path}.${thumbnail?.extension}`} />

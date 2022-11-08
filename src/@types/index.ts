@@ -26,18 +26,20 @@ export type SelectFilterType = {
 
 export type fetchCharactersTypes = {
   limit: number;
-  typeFilter: string;
-  filterId: string;
+  typeFilter?: string;
+  filterId?: string;
   nameStartsWith: string;
 };
 
 export type StorageCharactersTypes = {
   id: string;
+  name: string;
   rating: number | undefined;
 };
 
 export interface ContextTypes {
   characters: CharactersTypes[];
+  atualStorage: StorageCharactersTypes[];
   filter: FilterTypes[];
   loading: boolean;
   fetchCharacters: ({
@@ -47,5 +49,5 @@ export interface ContextTypes {
     nameStartsWith,
   }: fetchCharactersTypes) => Promise<void>;
   fetchFilters: (typeFilter: string) => Promise<void>;
-  updateStorage: ({ id, rating }: StorageCharactersTypes) => void;
+  updateStorage: ({ id, name, rating }: StorageCharactersTypes) => void;
 }
