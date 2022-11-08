@@ -1,17 +1,18 @@
 import { FormEvent, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useHeroes } from "../../hooks/useHeroes";
+
 import ReactStars from "react-rating-stars-component";
+import { NotFound } from "../../components/NotFound";
+import { useHeroes } from "../../hooks/useHeroes";
+import { useNavigate } from "react-router-dom";
 
 import { Button } from "../../components/Button";
 import { MyHeroCard } from "../../components/MyHeroCard";
 
 import * as Styles from "./styles";
+
 import { RatingSearchType } from "../../@types";
 
 export function MyHeroes() {
-  const { atualStorage } = useHeroes();
-
   const [name, setName] = useState("");
   const [rating, setRating] = useState(0);
   const [character, setCharacter] = useState<RatingSearchType>({
@@ -20,6 +21,7 @@ export function MyHeroes() {
   } as RatingSearchType);
   const [count, setCount] = useState(20);
 
+  const { atualStorage } = useHeroes();
   const navigation = useNavigate();
 
   async function handleSubmit(e: FormEvent) {
@@ -42,7 +44,6 @@ export function MyHeroes() {
           <Styles.SearchInput
             type="search"
             placeholder="Nome do herói"
-            name="hero"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
@@ -58,17 +59,10 @@ export function MyHeroes() {
       </Styles.InputContainer>
       <Styles.TodoContainer>
         <Styles.TodoGrid>
-          {atualStorage.map((item) =>
-            character.name === ""
-              ? item.rating >= character.rating && (
-                  <MyHeroCard
-                    key={item.id}
-                    id={item.id}
-                    name={item.name}
-                    rating={item.rating}
-                  />
-                )
-              : item.name.startsWith(character.name) &&
+          {atualStorage[0] ? (
+            atualStorage.map(
+              (item) =>
+                item.name.startsWith(character.name) &&
                 item.rating >= character.rating && (
                   <MyHeroCard
                     key={item.id}
@@ -77,6 +71,9 @@ export function MyHeroes() {
                     rating={item.rating}
                   />
                 )
+            )
+          ) : (
+            <NotFound title="Você ainda não avaliou nenhum herói" />
           )}
         </Styles.TodoGrid>
       </Styles.TodoContainer>

@@ -1,11 +1,11 @@
+import ReactStars from "react-rating-stars-component";
+import { useHeroes } from "../../hooks/useHeroes";
 import { Info } from "react-feather";
 import swal from "sweetalert";
-import ReactStars from "react-rating-stars-component";
 
 import * as Styles from "./styles";
 
 import { CharactersTypes } from "../../@types";
-import { useHeroes } from "../../hooks/useHeroes";
 
 export function HomeCard({
   id,
@@ -19,7 +19,7 @@ export function HomeCard({
     if (description === "") {
       swal({
         title: "Aviso",
-        text: "Este heroi não tem descrição registrada.",
+        text: "Este herói não tem descrição registrada.",
         icon: "warning",
       });
     } else {
@@ -38,7 +38,7 @@ export function HomeCard({
   return (
     <Styles.Container>
       <Styles.DescriptionIcon onClick={openModal}>
-        <Info size={24} />
+        <Info size={24} color="black" />
       </Styles.DescriptionIcon>
       <Styles.Content>
         <Styles.Figure>

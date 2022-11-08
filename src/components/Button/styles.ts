@@ -4,8 +4,8 @@ export const Container = styled.button`
   align-items: center;
 
   width: 65%;
-  min-width: 177.3px;
-  min-height: 35px;
+  min-width: 11rem;
+  min-height: 2rem;
 
   border: 0;
   border-radius: 0.3rem;

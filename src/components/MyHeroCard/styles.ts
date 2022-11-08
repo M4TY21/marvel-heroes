@@ -28,8 +28,8 @@ export const Figure = styled.figure`
   align-items: center;
   justify-content: center;
 
-  height: 100px;
-  width: 100px;
+  height: 6.25rem;
+  width: 6.25rem;
 
   border: 2px solid #ff1734;
   border-radius: 4rem;
@@ -44,8 +44,9 @@ export const HeroImg = styled.img`
 
 export const Name = styled.h1`
   justify-self: center;
-  width: 100%;
   text-align: center;
+
+  width: 100%;
 
   font-size: 1.3rem;
   font-family: "Poppins", sans-serif;
@@ -59,7 +60,7 @@ export const DescriptionIcon = styled.button`
   top: 0;
   left: 0;
 
-  margin: 4px;
+  margin: 0.25rem;
 
   border: 0;
   background: transparent;
@@ -72,7 +73,7 @@ export const RemoveIcon = styled.button`
   top: 0;
   right: 0;
 
-  margin: 4px;
+  margin: 0.25rem;
 
   border: 0;
   background: transparent;

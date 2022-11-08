@@ -5,6 +5,7 @@ import {
   useEffect,
   useState,
 } from "react";
+
 import { api } from "../services/api";
 
 import {
@@ -75,10 +76,13 @@ function HeroesProvider({ children }: HeroesProviderProps) {
     }
   }
 
-  function removeItemStorage({ id, name, rating }: StorageCharactersTypes) {
+  function removeItemStorage(id: string) {
     getStorage();
-    const index = atualStorage.indexOf({ id, name, rating });
-    atualStorage.splice(index, 1);
+    const idsStorage = atualStorage.map((item) => item.id);
+    const index = idsStorage.indexOf(id);
+    if (index !== -1) {
+      atualStorage.splice(index, 1);
+    }
     localStorage.setItem("characters", JSON.stringify(atualStorage));
     getStorage();
   }
@@ -92,7 +96,7 @@ function HeroesProvider({ children }: HeroesProviderProps) {
         JSON.stringify([...atualStorage, { id, name, rating }])
       );
     } else {
-      const index = atualStorage.indexOf({ id, name, rating });
+      const index = idsStorage.indexOf(id);
       atualStorage.splice(index, 1);
       localStorage.setItem(
         "characters",

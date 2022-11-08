@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 
 import ReactStars from "react-rating-stars-component";
+import { useHeroes } from "../../hooks/useHeroes";
 import { api } from "../../services/api";
 import { Info, X } from "react-feather";
 import swal from "sweetalert";
 
 import * as Styles from "./styles";
-
 import { CharactersTypes, StorageCharactersTypes } from "../../@types";
-import { useHeroes } from "../../hooks/useHeroes";
 
 export function MyHeroCard({ id, name, rating }: StorageCharactersTypes) {
   const [character, setCharacter] = useState<CharactersTypes>(
@@ -42,7 +41,7 @@ export function MyHeroCard({ id, name, rating }: StorageCharactersTypes) {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        removeItemStorage({ id, name, rating });
+        removeItemStorage(id);
       }
     });
   }

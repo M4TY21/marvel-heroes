@@ -175,11 +175,6 @@ export const TodoGrid = styled.ul`
     grid-template-columns: auto auto auto;
     grid-gap: 15px 15px;
   }
-
-  @media (min-width: 1534px) {
-    grid-template-columns: auto auto auto auto;
-    grid-gap: 30px 20px;
-  }
 `;
 
 export const Button = styled.button`
@@ -214,9 +209,5 @@ export const Button = styled.button`
 
   @media (min-width: 1007px) {
     grid-column: 1/3;
-  }
-
-  @media (min-width: 1439px) {
-    grid-column: 2/4;
   }
 `;

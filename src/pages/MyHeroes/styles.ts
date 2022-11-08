@@ -87,7 +87,7 @@ export const TodoContainer = styled.section`
 export const TodoGrid = styled.ul`
   display: grid;
   justify-content: center;
-  padding: 30px 0;
+  padding: 30px 0px;
   grid-gap: 30px 0px;
 
   height: 100%;
@@ -107,13 +107,9 @@ export const TodoGrid = styled.ul`
     grid-gap: 15px 30px;
   }
 
-  @media (min-width: 1244px) {
+  @media (min-width: 1268px) {
     grid-template-columns: auto auto auto;
-  }
-
-  @media (min-width: 1439px) {
-    grid-template-columns: auto auto auto auto;
-    grid-gap: 30px 25px;
+    grid-gap: 0px 30px;
   }
 `;
 
@@ -144,9 +140,5 @@ export const Button = styled.button`
 
   @media (min-width: 1007px) {
     grid-column: 1/3;
-  }
-
-  @media (min-width: 1439px) {
-    grid-column: 2/4;
   }
 `;

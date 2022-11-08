@@ -17,6 +17,7 @@ export const Container = styled.div`
 
 export const LoadIcon = styled(Loader)`
   animation: spin 3s linear infinite;
+
   @keyframes spin {
     from {
       transform: rotate(360deg);
