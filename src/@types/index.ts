@@ -49,5 +49,6 @@ export interface ContextTypes {
     nameStartsWith,
   }: fetchCharactersTypes) => Promise<void>;
   fetchFilters: (typeFilter: string) => Promise<void>;
+  removeItemStorage: ({ id, name, rating }: StorageCharactersTypes) => void;
   updateStorage: ({ id, name, rating }: StorageCharactersTypes) => void;
 }

@@ -75,6 +75,13 @@ function HeroesProvider({ children }: HeroesProviderProps) {
     }
   }
 
+  function removeItemStorage({ id, name, rating }: StorageCharactersTypes) {
+    const index = atualStorage.indexOf({ id, name, rating });
+    atualStorage.splice(index, 1);
+    localStorage.setItem("characters", JSON.stringify(atualStorage));
+    getStorage();
+  }
+
   function updateStorage({ id, name, rating }: StorageCharactersTypes) {
     const idsStorage = atualStorage.map((item) => item.id);
 
@@ -108,6 +115,7 @@ function HeroesProvider({ children }: HeroesProviderProps) {
         filter,
         fetchCharacters,
         fetchFilters,
+        removeItemStorage,
         updateStorage,
       }}
     >
