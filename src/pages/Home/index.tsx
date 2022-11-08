@@ -1,4 +1,5 @@
 import { FormEvent, useEffect, useState } from "react";
+
 import { useHeroes } from "../../hooks/useHeroes";
 import { useNavigate } from "react-router-dom";
 
@@ -18,8 +19,8 @@ export function Home() {
   const [filterSelect, setFilterSelect] = useState<SelectFilterType>(
     {} as SelectFilterType
   );
-  const navigation = useNavigate();
 
+  const navigation = useNavigate();
   const { characters, loading, filter, fetchCharacters, fetchFilters } =
     useHeroes();
 
@@ -57,7 +58,6 @@ export function Home() {
           <Styles.SearchInput
             type="search"
             placeholder="Nome do herói"
-            name="hero"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />

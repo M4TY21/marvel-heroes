@@ -1,14 +1,9 @@
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 import { api } from "../services/api";
 
 import {
+  HeroesProviderProps,
   CharactersTypes,
   ContextTypes,
   fetchCharactersTypes,
@@ -16,16 +11,12 @@ import {
   StorageCharactersTypes,
 } from "../@types";
 
-interface HeroesProviderProps {
-  children: ReactNode;
-}
-
 const HeroesContext = createContext({} as ContextTypes);
 
 function HeroesProvider({ children }: HeroesProviderProps) {
   const [characters, setCharacters] = useState<CharactersTypes[]>([]);
   const [filter, SetFilter] = useState<FilterTypes[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [atualStorage, setAtualStorage] = useState<StorageCharactersTypes[]>(
     []
   );
@@ -40,6 +31,7 @@ function HeroesProvider({ children }: HeroesProviderProps) {
     const url = filterId
       ? `/${typeFilter}/${filterId}/characters`
       : "/characters";
+
     const params =
       nameStartsWith !== ""
         ? {
@@ -77,12 +69,13 @@ function HeroesProvider({ children }: HeroesProviderProps) {
   }
 
   function removeItemStorage(id: string) {
-    getStorage();
     const idsStorage = atualStorage.map((item) => item.id);
     const index = idsStorage.indexOf(id);
+
     if (index !== -1) {
       atualStorage.splice(index, 1);
     }
+
     localStorage.setItem("characters", JSON.stringify(atualStorage));
     getStorage();
   }
@@ -90,20 +83,15 @@ function HeroesProvider({ children }: HeroesProviderProps) {
   function updateStorage({ id, name, rating }: StorageCharactersTypes) {
     const idsStorage = atualStorage.map((item) => item.id);
 
-    if (!idsStorage.includes(id)) {
-      localStorage.setItem(
-        "characters",
-        JSON.stringify([...atualStorage, { id, name, rating }])
-      );
-    } else {
+    if (idsStorage.includes(id)) {
       const index = idsStorage.indexOf(id);
       atualStorage.splice(index, 1);
-      localStorage.setItem(
-        "characters",
-        JSON.stringify([...atualStorage, { id, name, rating }])
-      );
     }
 
+    localStorage.setItem(
+      "characters",
+      JSON.stringify([...atualStorage, { id, name, rating }])
+    );
     getStorage();
   }
 

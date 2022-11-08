@@ -7,6 +7,7 @@ import { Info, X } from "react-feather";
 import swal from "sweetalert";
 
 import * as Styles from "./styles";
+
 import { CharactersTypes, StorageCharactersTypes } from "../../@types";
 
 export function MyHeroCard({ id, name, rating }: StorageCharactersTypes) {

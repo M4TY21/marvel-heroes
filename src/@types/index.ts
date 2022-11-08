@@ -4,6 +4,10 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: ReactNode;
 };
 
+export type HeroesProviderProps = {
+  children: ReactNode;
+};
+
 export type CharactersTypes = {
   id: string;
   name: string;

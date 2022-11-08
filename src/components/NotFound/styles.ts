@@ -19,7 +19,11 @@ export const Container = styled.li`
   background: #fafafa;
 
   @media (min-width: 1007px) {
-    grid-column: 1/3;
+    grid-column: 2/3;
+  }
+
+  @media (min-width: 1560px) {
+    grid-column: 2/4;
   }
 `;
 

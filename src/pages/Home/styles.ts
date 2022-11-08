@@ -22,12 +22,12 @@ export const InputContainer = styled.aside`
   align-items: center;
   flex: 7;
 
-  min-height: 380px;
+  min-height: 23.75rem;
 
   background: #242424;
 
   @media (min-width: 700px) {
-    max-width: 500px;
+    max-width: 31.25rem;
   }
 `;
 
@@ -36,9 +36,9 @@ export const ButtonContainer = styled.div`
   top: 0;
   right: 0;
 
-  width: 177.3px;
+  width: 11rem;
 
-  margin: 10px;
+  margin: 0.625rem;
 `;
 
 export const Content = styled.form`
@@ -46,9 +46,9 @@ export const Content = styled.form`
   flex-direction: column;
   justify-content: center;
   padding: 1.5rem 2rem;
-  gap: 10px;
+  gap: 0.625rem;
 
-  min-height: 226px;
+  min-height: 14rem;
 
   border-radius: 1rem;
   background: #393939;
@@ -58,7 +58,7 @@ export const SearchInput = styled.input`
   align-items: center;
   padding-left: 0.5rem;
 
-  height: 35px;
+  height: 2.2rem;
 
   border: 0;
   border-radius: 0.4rem;
@@ -101,9 +101,9 @@ export const Radio = styled.input`
   background-color: #fafafa;
   margin: 0;
 
-  width: 1.15em;
-  height: 1.15em;
-  border: 0.15em solid #ff1734;
+  width: 1.15rem;
+  height: 1.15rem;
+  border: 0.15rem solid #ff1734;
   border-radius: 50%;
   transform: translateY(-0.075em);
 
@@ -112,12 +112,12 @@ export const Radio = styled.input`
 
   ::before {
     content: "";
-    width: 0.65em;
-    height: 0.65em;
+    width: 0.65rem;
+    height: 0.65rem;
     border-radius: 50%;
     transform: scale(0);
-    transition: 120ms transform ease-in-out;
-    box-shadow: inset 0.5em 0.5em #ff1734;
+    transition: 0.2s transform ease-in-out;
+    box-shadow: inset 0.5rem 0.5rem #ff1734;
   }
 
   :checked::before {
@@ -130,7 +130,7 @@ export const Radio = styled.input`
 `;
 
 export const SelectInput = styled(Select)`
-  max-width: 177px;
+  max-width: 11rem;
 
   font-size: 1rem;
   font-family: "Poppins", sans-serif;
@@ -151,8 +151,8 @@ export const TodoContainer = styled.section`
 export const TodoGrid = styled.ul`
   display: grid;
   justify-content: center;
-  padding: 30px 0px;
-  grid-gap: 30px 0px;
+  padding: 1.875rem 0px;
+  grid-gap: 1.875rem 0px;
 
   height: 100%;
   width: 100%;
@@ -168,12 +168,17 @@ export const TodoGrid = styled.ul`
 
   @media (min-width: 1007px) {
     grid-template-columns: auto auto;
-    grid-gap: 15px 30px;
+    grid-gap: 1rem 1.875rem;
   }
 
   @media (min-width: 1268px) {
     grid-template-columns: auto auto auto;
-    grid-gap: 15px 15px;
+    grid-gap: 1rem 1rem;
+  }
+
+  @media (min-width: 1560px) {
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 1.25rem 1.25rem;
   }
 `;
 
@@ -183,7 +188,7 @@ export const Button = styled.button`
   margin-top: auto;
 
   width: 15rem;
-  height: 55px;
+  height: 3.4rem;
 
   border: 0;
   border-radius: 0.3rem;
@@ -192,7 +197,6 @@ export const Button = styled.button`
   font-size: 1rem;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
-
   color: #fafafa;
 
   cursor: pointer;
@@ -209,5 +213,13 @@ export const Button = styled.button`
 
   @media (min-width: 1007px) {
     grid-column: 1/3;
+  }
+
+  @media (min-width: 1268px) {
+    grid-column: 2/3;
+  }
+
+  @media (min-width: 1560px) {
+    grid-column: 2/4;
   }
 `;

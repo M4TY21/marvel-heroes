@@ -1,6 +1,6 @@
 import { HeroesProvider } from "./hooks/useHeroes";
-import { AppRoutes } from "./routes";
 import { GlobalStyle } from "./styles/global";
+import { AppRoutes } from "./routes";
 
 function App() {
   return (

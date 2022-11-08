@@ -5,8 +5,8 @@ import { NotFound } from "../../components/NotFound";
 import { useHeroes } from "../../hooks/useHeroes";
 import { useNavigate } from "react-router-dom";
 
-import { Button } from "../../components/Button";
 import { MyHeroCard } from "../../components/MyHeroCard";
+import { Button } from "../../components/Button";
 
 import * as Styles from "./styles";
 
@@ -51,7 +51,7 @@ export function MyHeroes() {
           <ReactStars
             count={5}
             onChange={setRating}
-            size={24}
+            size={36}
             activeColor="#ffd700"
           />
           <Button type="submit">Procurar</Button>
