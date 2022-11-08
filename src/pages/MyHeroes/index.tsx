@@ -1,12 +1,10 @@
 import { FormEvent, useState } from "react";
 
-import ReactStars from "react-rating-stars-component";
+import { MyHeroCard } from "../../components/MyHeroCard";
 import { NotFound } from "../../components/NotFound";
 import { useHeroes } from "../../hooks/useHeroes";
-import { useNavigate } from "react-router-dom";
-
-import { MyHeroCard } from "../../components/MyHeroCard";
 import { Button } from "../../components/Button";
+import { useNavigate } from "react-router-dom";
 
 import * as Styles from "./styles";
 
@@ -48,7 +46,9 @@ export function MyHeroes() {
             onChange={(e) => setName(e.target.value)}
           />
 
-          <ReactStars
+          <Styles.Label>Avaliação:</Styles.Label>
+
+          <Styles.Rating
             count={5}
             onChange={setRating}
             size={36}

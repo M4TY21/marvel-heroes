@@ -26,7 +26,12 @@ export function Home() {
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    setCount(count + 1);
+    fetchCharacters({
+      limit: count,
+      typeFilter,
+      filterId: filterSelect.value,
+      nameStartsWith: name,
+    });
   }
 
   function handleNavigateToHeroes() {

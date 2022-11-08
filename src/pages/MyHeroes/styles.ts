@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import ReactStars from "react-rating-stars-component";
+
 export const Container = styled.main`
   display: flex;
   align-items: stretch;
@@ -45,7 +47,7 @@ export const Content = styled.form`
   justify-content: center;
   align-items: center;
   padding: 1.5rem 2rem;
-  gap: 1rem;
+  gap: 0.3rem;
 
   min-height: 14rem;
 
@@ -56,6 +58,7 @@ export const Content = styled.form`
 export const SearchInput = styled.input`
   align-items: center;
   padding-left: 0.5rem;
+  margin-bottom: 0.5rem;
 
   height: 2.2rem;
 
@@ -76,6 +79,17 @@ export const SearchInput = styled.input`
   }
 `;
 
+export const Label = styled.label`
+  margin-bottom: -0.5rem;
+
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: #fafafa;
+`;
+
+export const Rating = styled(ReactStars)``;
+
 export const TodoContainer = styled.section`
   display: flex;
   flex: 8;
@@ -88,19 +102,14 @@ export const TodoGrid = styled.ul`
   justify-content: center;
 
   padding: 1.875rem 0px;
-  grid-gap: 1.875rem 0px;
+  grid-gap: 1.2rem 0px;
 
-  height: 100%;
+  height: fit-content;
+  max-height: 100%;
   width: 100%;
 
   overflow-y: scrollbar;
   overflow-x: hidden;
-
-  ::-webkit-scrollbar {
-    display: none;
-  }
-  scrollbar-width: none;
-  -ms-overflow-style: none;
 
   @media (min-width: 1007px) {
     grid-template-columns: auto auto;

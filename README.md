@@ -1,46 +1,55 @@
-# Getting Started with Create React App
+# Heróis da Marvel
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O projeto consiste em duas paginas, na primeira é exibido um campo de busca onde pode ser feit
 
-## Available Scripts
+## Clone o repositório e instale as dependências
 
-In the project directory, you can run:
+Lembre-se, para rodar a aplicação é necessário ter instalado o Node.Js e as dependências usadas.
 
-### `npm start`
+### Instalando Node.Js
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Para instalar siga as instruções [Documentação do Node.Js](https://nodejs.org/pt-br/download/).
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Clonando o repositório
 
-### `npm test`
+Com método HTTPS:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```git
+git clone https://github.com/M4TY21/OneBlue-challenge.git
+```
 
-### `npm run build`
+Com método SSH:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```git
+git clone git@github.com:M4TY21/OneBlue-challenge.git
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Depois disso, acesse a pasta do repositório pelo terminal:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+  cd OneBlue-challenge
+```
 
-### `npm run eject`
+### Instalando as dependências
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+instalando todas bibliotecas e dependências do projeto:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+  npm install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Rodando projeto
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Após clonar o repositório e instalar as dependências necessárias, para rodar o projeto basta usar o seguinte comando:
 
-## Learn More
+```bash
+  npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Tecnologias e bibliotecas utilizadas
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Axios / Foi utilizado para fazer o POST da API na aplicação
+- Yup
+- React-router-dom / Foi utilizado para fazer a navegação da pagina de cadastro para a de login
+- Styled components
+- MUI

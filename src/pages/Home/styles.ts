@@ -152,19 +152,14 @@ export const TodoGrid = styled.ul`
   display: grid;
   justify-content: center;
   padding: 1.875rem 0px;
-  grid-gap: 1.875rem 0px;
+  grid-gap: 1.2rem 0px;
 
-  height: 100%;
+  height: fit-content;
+  max-height: 100%;
   width: 100%;
 
   overflow-y: scrollbar;
   overflow-x: hidden;
-
-  ::-webkit-scrollbar {
-    display: none;
-  }
-  scrollbar-width: none;
-  -ms-overflow-style: none;
 
   @media (min-width: 1007px) {
     grid-template-columns: auto auto;
@@ -216,10 +211,10 @@ export const Button = styled.button`
   }
 
   @media (min-width: 1268px) {
-    grid-column: 2/3;
+    grid-column: 1/4;
   }
 
   @media (min-width: 1560px) {
-    grid-column: 2/4;
+    grid-column: 1/5;
   }
 `;
