@@ -13,7 +13,7 @@ declare module "react-rating-stars-component" {
     halfIcon: JSX.Element;
     filledIcon: JSX.Element;
     a11y: boolean;
-    onChange: (newRating?: number) => void;
+    onChange: (newRating: number) => void;
   }>;
 
   export default function ReactStars(props?: ReactStarsProps): JSX.Element;

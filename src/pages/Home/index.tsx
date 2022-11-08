@@ -32,10 +32,10 @@ export function Home() {
     navigation("/myHeroes");
   }
 
-  // useEffect(() => {
-  //   fetchFilters(typeFilter);
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [typeFilter]);
+  useEffect(() => {
+    fetchFilters(typeFilter);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [typeFilter]);
 
   useEffect(() => {
     fetchCharacters({
@@ -46,10 +46,6 @@ export function Home() {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count]);
-
-  // useEffect(() => {
-  //   console.log(filterSelect);
-  // }, [filterSelect]);
 
   return (
     <Styles.Container>

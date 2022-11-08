@@ -103,7 +103,7 @@ export const Radio = styled.input`
 
   width: 1.15em;
   height: 1.15em;
-  border: 0.15em solid #2f6de0;
+  border: 0.15em solid #ff1734;
   border-radius: 50%;
   transform: translateY(-0.075em);
 
@@ -117,7 +117,7 @@ export const Radio = styled.input`
     border-radius: 50%;
     transform: scale(0);
     transition: 120ms transform ease-in-out;
-    box-shadow: inset 0.5em 0.5em #2f6de0;
+    box-shadow: inset 0.5em 0.5em #ff1734;
   }
 
   :checked::before {
@@ -151,7 +151,7 @@ export const TodoContainer = styled.section`
 export const TodoGrid = styled.ul`
   display: grid;
   justify-content: center;
-  padding: 30px 0;
+  padding: 30px 0px;
   grid-gap: 30px 0px;
 
   height: 100%;
@@ -171,11 +171,12 @@ export const TodoGrid = styled.ul`
     grid-gap: 15px 30px;
   }
 
-  @media (min-width: 1244px) {
+  @media (min-width: 1268px) {
     grid-template-columns: auto auto auto;
+    grid-gap: 15px 15px;
   }
 
-  @media (min-width: 1439px) {
+  @media (min-width: 1534px) {
     grid-template-columns: auto auto auto auto;
     grid-gap: 30px 20px;
   }

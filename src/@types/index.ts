@@ -34,7 +34,12 @@ export type fetchCharactersTypes = {
 export type StorageCharactersTypes = {
   id: string;
   name: string;
-  rating: number | undefined;
+  rating: number;
+};
+
+export type RatingSearchType = {
+  name: string;
+  rating: number;
 };
 
 export interface ContextTypes {

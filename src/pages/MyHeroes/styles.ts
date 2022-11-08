@@ -44,7 +44,7 @@ export const ButtonContainer = styled.div`
 export const Content = styled.form`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   padding: 1.5rem 2rem;
   gap: 10px;
 
@@ -75,68 +75,6 @@ export const SearchInput = styled.input`
   ::placeholder {
     color: #3f3f3f;
   }
-`;
-
-export const Filter = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-`;
-
-export const Label = styled.label`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 0.3rem;
-
-  font-size: 1rem;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  color: #fafafa;
-`;
-
-export const Radio = styled.input`
-  -webkit-appearance: none;
-  appearance: none;
-  background-color: #fafafa;
-  margin: 0;
-
-  width: 1.15em;
-  height: 1.15em;
-  border: 0.15em solid #2f6de0;
-  border-radius: 50%;
-  transform: translateY(-0.075em);
-
-  display: grid;
-  place-content: center;
-
-  ::before {
-    content: "";
-    width: 0.65em;
-    height: 0.65em;
-    border-radius: 50%;
-    transform: scale(0);
-    transition: 120ms transform ease-in-out;
-    box-shadow: inset 0.5em 0.5em #2f6de0;
-  }
-
-  :checked::before {
-    transform: scale(1);
-  }
-
-  :focus {
-    outline: none;
-  }
-`;
-
-export const SelectInput = styled(Select)`
-  max-width: 177px;
-
-  font-size: 1rem;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-
-  color: #3f3f3f;
 `;
 
 export const TodoContainer = styled.section`

@@ -1,23 +1,29 @@
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { StorageCharactersTypes } from "../../@types";
+import { useHeroes } from "../../hooks/useHeroes";
+import ReactStars from "react-rating-stars-component";
+
 import { Button } from "../../components/Button";
 import { MyHeroCard } from "../../components/MyHeroCard";
-import { useHeroes } from "../../hooks/useHeroes";
+
 import * as Styles from "./styles";
+import { RatingSearchType } from "../../@types";
 
 export function MyHeroes() {
   const { atualStorage } = useHeroes();
 
   const [name, setName] = useState("");
-  const [character, setCharacter] = useState("");
+  const [rating, setRating] = useState(0);
+  const [character, setCharacter] = useState<RatingSearchType>(
+    {} as RatingSearchType
+  );
   const [count, setCount] = useState(20);
 
   const navigation = useNavigate();
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    setCharacter(name);
+    setCharacter({ name, rating });
     setCount(count + 1);
   }
 
@@ -39,13 +45,20 @@ export function MyHeroes() {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
+
+          <ReactStars
+            count={5}
+            onChange={setRating}
+            size={24}
+            activeColor="#ffd700"
+          />
           <Button type="submit">Procurar</Button>
         </Styles.Content>
       </Styles.InputContainer>
       <Styles.TodoContainer>
         <Styles.TodoGrid>
           {atualStorage.map((item) =>
-            character === "" ? (
+            character.name === "" && item.rating > character.rating ? (
               <MyHeroCard
                 key={item.id}
                 id={item.id}
@@ -53,7 +66,8 @@ export function MyHeroes() {
                 rating={item.rating}
               />
             ) : (
-              item.name.startsWith(character) && (
+              item.name.startsWith(character.name) &&
+              item.rating >= character.rating && (
                 <MyHeroCard
                   key={item.id}
                   id={item.id}

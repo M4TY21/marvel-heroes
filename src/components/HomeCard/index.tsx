@@ -31,7 +31,7 @@ export function HomeCard({
     }
   }
 
-  function handleRating(rating: number | undefined) {
+  function handleRating(rating: number) {
     updateStorage({ id, name, rating });
   }
 

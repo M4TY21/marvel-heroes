@@ -76,6 +76,7 @@ function HeroesProvider({ children }: HeroesProviderProps) {
   }
 
   function removeItemStorage({ id, name, rating }: StorageCharactersTypes) {
+    getStorage();
     const index = atualStorage.indexOf({ id, name, rating });
     atualStorage.splice(index, 1);
     localStorage.setItem("characters", JSON.stringify(atualStorage));
