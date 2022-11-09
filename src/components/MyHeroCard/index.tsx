@@ -69,6 +69,7 @@ export function MyHeroCard({ id, name, rating }: StorageCharactersTypes) {
         <Styles.Figure>
           <Styles.HeroImg
             src={`${character.thumbnail?.path}.${character.thumbnail?.extension}`}
+            alt={`ícone do herói ${name}`}
           />
         </Styles.Figure>
         <Styles.Name>{name}</Styles.Name>

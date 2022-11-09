@@ -42,7 +42,10 @@ export function HomeCard({
       </Styles.DescriptionIcon>
       <Styles.Content>
         <Styles.Figure>
-          <Styles.HeroImg src={`${thumbnail?.path}.${thumbnail?.extension}`} />
+          <Styles.HeroImg
+            src={`${thumbnail?.path}.${thumbnail?.extension}`}
+            alt={`ícone do herói ${name}`}
+          />
         </Styles.Figure>
         <Styles.Name>{name}</Styles.Name>
       </Styles.Content>
