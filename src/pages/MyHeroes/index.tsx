@@ -1,10 +1,12 @@
 import { FormEvent, useState } from "react";
 
+import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
+
 import { MyHeroCard } from "../../components/MyHeroCard";
 import { NotFound } from "../../components/NotFound";
 import { useHeroes } from "../../hooks/useHeroes";
 import { Button } from "../../components/Button";
-import { useNavigate } from "react-router-dom";
 
 import * as Styles from "./styles";
 
@@ -19,13 +21,27 @@ export function MyHeroes() {
   } as RatingSearchType);
   const [count, setCount] = useState(20);
 
-  const { atualStorage } = useHeroes();
+  const { atualStorage, clearStorage } = useHeroes();
   const navigation = useNavigate();
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     setCharacter({ name, rating });
     setCount(count + 1);
+  }
+
+  function handleRemoveAll() {
+    swal({
+      title: "Cuidado!",
+      text: "Tem certeza que deseja excluir todas as avaliações?",
+      icon: "warning",
+      buttons: ["Cancelar", "Sim"],
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        clearStorage();
+      }
+    });
   }
 
   function handleNavigateToHome() {
@@ -59,6 +75,12 @@ export function MyHeroes() {
       </Styles.InputContainer>
       <Styles.TodoContainer>
         <Styles.TodoGrid>
+          <Styles.ClearButton
+            onClick={handleRemoveAll}
+            disabled={!atualStorage[0]}
+          >
+            Limpar avalições
+          </Styles.ClearButton>
           {atualStorage[0] ? (
             atualStorage.map(
               (item) =>

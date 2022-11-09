@@ -35,7 +35,7 @@ export function MyHeroCard({ id, name, rating }: StorageCharactersTypes) {
 
   function RemoveCharacter() {
     swal({
-      title: "Tem certeza?",
+      title: "Cuidado!",
       text: "Tem certeza que deseja excluir a avaliação deste herói?",
       icon: "warning",
       buttons: ["Cancelar", "Sim"],

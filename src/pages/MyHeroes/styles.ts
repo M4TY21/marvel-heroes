@@ -126,3 +126,45 @@ export const TodoGrid = styled.ul`
     grid-gap: 1.25rem 1.25rem;
   }
 `;
+
+export const ClearButton = styled.button`
+  align-items: center;
+  justify-self: center;
+  margin-bottom: auto;
+
+  width: 15rem;
+  height: 3.4rem;
+
+  border: 0;
+  border-radius: 0.3rem;
+  background: #ff1734;
+
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: #fafafa;
+
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  :hover {
+    opacity: 0.7;
+  }
+
+  :disabled {
+    opacity: 0.8;
+    cursor: not-allowed;
+  }
+
+  @media (min-width: 1007px) {
+    grid-column: 1/3;
+  }
+
+  @media (min-width: 1268px) {
+    grid-column: 1/4;
+  }
+
+  @media (min-width: 1560px) {
+    grid-column: 1/5;
+  }
+`;

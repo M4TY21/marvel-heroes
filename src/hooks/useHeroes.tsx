@@ -95,6 +95,11 @@ function HeroesProvider({ children }: HeroesProviderProps) {
     getStorage();
   }
 
+  function clearStorage() {
+    setAtualStorage([]);
+    localStorage.clear();
+  }
+
   useEffect(() => {
     getStorage();
   }, []);
@@ -110,6 +115,7 @@ function HeroesProvider({ children }: HeroesProviderProps) {
         fetchFilters,
         removeItemStorage,
         updateStorage,
+        clearStorage,
       }}
     >
       {children}
