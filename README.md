@@ -8,6 +8,12 @@ Já na segunda pagina, você pode visualizar todos os personagens que foram aval
 
 ![marvel-01](./src/assets/marvel-1.png)
 
+# Deploy da aplicação
+
+O projeto está no ar no seguinte link:
+
+https://marvel-heroes-7o50s34l3-m4ty21.vercel.app/
+
 ## Clone o repositório e instale as dependências
 
 Para rodar o projeto é preciso ter instalado o Node.Js e as dependências usadas.
@@ -34,6 +40,15 @@ Depois, acesse a pasta do repositório pelo terminal:
 
 ```bash
   cd marvel-heroes
+```
+
+### Variaveis de ambiente
+
+Nessa aplicação serão necessárias duas chaves para fazer as requisições na API utilizada, crie um arquivo `.env`, como de exemplo o arquivo `.env.example` e coloque suas credenciais nele, deste modo:
+
+```env
+REACT_APP_PUBLIC_KEY={chave-publica}
+REACT_APP_PRIVATE_KEY={chave-privada}
 ```
 
 ### Instalando as dependências
